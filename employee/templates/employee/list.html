@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>Employee List</title>
+{% endblock title %}
+{% block content %}
+  <h1 class="text-center pt-1 pb-1">Employees Information</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for emp in employees %}
+        <tr>
+          <td><a style='text-decoration:none; color:inherit'href="{% url 'view-employee' emp.id %}">{{emp.emp_name}}</a></td>
+          <td>{{emp.emp_email}}</td>
+          <td>{{emp.emp_role}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="text-center">
+    <a href="{% url 'create-employee' %}"><button type="button" class="btn btn-primary">Add New Employee</button></a>
+  </div>
+{% endblock content %}

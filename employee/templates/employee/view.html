@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>Employee Information</title>
+{% endblock title %}
+{% block content %}
+  <h1 class="text-center pt-1 pb-1">Employee Information</h1>
+  <table class="table table-striped">
+    <tbody>
+        <tr>
+          <th>Name</th><td>{{employee.emp_name}}</td>
+        </tr>
+        <tr>
+          <th>Email</th><td>{{employee.emp_email}}</td>
+        </tr>
+        <tr>
+          <th>Contact No</th><td>{{employee.emp_email}}</td>
+        </tr>
+        <tr>
+          <th>Role</th><td>{{employee.emp_role}}</td>
+        </tr>
+        <tr>
+          <th>Salary</th><td>{{employee.emp_salary}}</td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-around">
+    <div>
+      <a href="{% url 'edit-employee' employee.id %}"><button type="button" class="btn btn-success">Edit Employee</button></a>
+    </div>
+    <div>
+      <a href="{% url 'delete-employee' employee.id %}"><button type="button" class="btn btn-danger">Delete Employee</button></a>
+    </div>
+    <div>
+      <a href="{% url 'employees-list' %}"><button type="button" class="btn btn-primary">List Employees</button></a>
+    </div>
+  </div>
+{% endblock content %}
